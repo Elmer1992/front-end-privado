@@ -1,0 +1,6 @@
+<h2>Editar Articulo</h2>
+
+<app-formulario-articulo [categoriasNoSeleccionadas]="categoriasNoSeleccionadas" [categoriasSeleccionadas]="categoriasSeleccionadas" *ngIf="modelo" [modelo]="modelo" (OnSubmit)="guardarCambios($event)"></app-formulario-articulo>
+
+
+<mat-spinner *ngIf="!modelo"></mat-spinner>

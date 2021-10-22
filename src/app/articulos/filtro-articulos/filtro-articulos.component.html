@@ -1,0 +1,34 @@
+<h2>Buscar Articulo</h2>
+
+<mat-spinner *ngIf="!articulos"></mat-spinner>
+
+<form [formGroup]="form" *ngIf="articulos">
+    <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input formControlName="titulo" matInput/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>categoria</mat-label>
+        <mat-select formControlName="categoriasId">
+            <mat-option [value]="0">--Seleccione una categoria--</mat-option>
+            <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div>
+        <mat-checkbox formControlName="articulosGratis">Articulos Gratis</mat-checkbox>
+    </div>
+
+    <div>
+        <mat-checkbox formControlName="articulosPaga">Articulos Paga</mat-checkbox>
+    </div>
+    <div class="contenedor-limpiar">
+        <button mat-flat-button (click)="limpiar()" color="warn">Limpiar</button>
+    </div>
+</form>
+
+<app-listado-articulos [articulos]="articulos"></app-listado-articulos>
+
+
+<mat-paginator [length]="cantidadElementos" [pageSize]="cantidadElementosAMostrar" [pageSizeOptions]="[5, 10, 20]" (page)="paginatorUpdate($event)"></mat-paginator>

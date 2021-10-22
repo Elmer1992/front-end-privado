@@ -1,0 +1,23 @@
+<div *ngIf="!listado">
+    <span #cargando>
+        <ng-content select="[cargando]"></ng-content>
+    </span>
+
+    <span *ngIf="!cargando.innerHTML.trim()">
+    <img src="https://c.tenor.com/Tu0MCmJ4TJUAAAAC/load-loading.gif" />
+    </span>
+</div>
+
+
+<div *ngIf="listado?.length === 0">
+    <span #vacio><ng-content select="[vacio]"></ng-content></span>
+
+    <span *ngIf="!vacio.innerHTML.trim()">
+    <p>No hay listado para mostrar</p>
+    </span>
+
+</div>
+
+<ng-container *ngIf="listado && listado.length > 0">
+    <ng-content select="[contenido]"></ng-content>
+</ng-container>
