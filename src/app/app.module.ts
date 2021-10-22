@@ -41,7 +41,9 @@ import { CrearAarchivadosComponent } from './aarchivados/crear-aarchivados/crear
 import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle-articulos.component';
 import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
 import { LoginComponent } from './seguridad/login/login.component';
-
+import { RegistroComponent } from './seguridad/registro/registro.component';
+import { FormularioAutenticacionComponent } from './seguridad/formulario-autenticacion/formulario-autenticacion.component';
+import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-errores.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,10 @@ import { LoginComponent } from './seguridad/login/login.component';
     CrearAarchivadosComponent,
     DetalleArticulosComponent,
     AutorizadoComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent,
+    FormularioAutenticacionComponent,
+    MostrarErroresComponent
     
   ],
   imports: [

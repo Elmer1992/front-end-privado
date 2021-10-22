@@ -16,6 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle-articulos.component';
 import { EsAdminGuard } from './es-admin.guard';
 import { LoginComponent } from './seguridad/login/login.component';
+import { RegistroComponent } from './seguridad/registro/registro.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -38,6 +39,8 @@ const routes: Routes = [
   {path: 'articulos/buscar', component: FiltroArticulosComponent},
   {path: 'articulos/:id', component: DetalleArticulosComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'registro', component: RegistroComponent},
+
   {path: '**', redirectTo: ''}
 ];
 
