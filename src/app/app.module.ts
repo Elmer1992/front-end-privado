@@ -39,6 +39,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormularioAarchivadosComponent } from './aarchivados/formulario-aarchivados/formulario-aarchivados.component';
 import { CrearAarchivadosComponent } from './aarchivados/crear-aarchivados/crear-aarchivados.component';
 import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle-articulos.component';
+import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle
     SelectorMultipleComponent,
     FormularioAarchivadosComponent,
     CrearAarchivadosComponent,
-    DetalleArticulosComponent
+    DetalleArticulosComponent,
+    AutorizadoComponent
     
   ],
   imports: [
