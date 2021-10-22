@@ -14,27 +14,30 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle-articulos.component';
+import { EsAdminGuard } from './es-admin.guard';
+import { LoginComponent } from './seguridad/login/login.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
 
-  {path: 'categorias', component: IndiceCategoriasComponent},
-  {path: 'categorias/crear', component: CrearCategoriasComponent},
-  {path: 'categorias/editar/:id', component: EditarCategoriasComponent},
+  {path: 'categorias', component: IndiceCategoriasComponent, canActivate: [EsAdminGuard]},
+  {path: 'categorias/crear', component: CrearCategoriasComponent, canActivate: [EsAdminGuard]},
+  {path: 'categorias/editar/:id', component: EditarCategoriasComponent, canActivate: [EsAdminGuard]},
 
 
-  {path: 'podCast', component: IndicePodCastComponent},
-  {path: 'podCast/crear', component: CrearPodCastComponent},
-  {path: 'podCast/editar/:id', component: EditarPodCastComponent},
+  {path: 'podCast', component: IndicePodCastComponent, canActivate: [EsAdminGuard]},
+  {path: 'podCast/crear', component: CrearPodCastComponent, canActivate: [EsAdminGuard]},
+  {path: 'podCast/editar/:id', component: EditarPodCastComponent, canActivate: [EsAdminGuard]},
 
-  {path: 'edipreD', component: IndiceEdipreDComponent},
-  {path: 'edipreD/crear', component: CrearEdipreDComponent},
-  {path: 'edipreD/editar/:id', component: EditarEdipreDComponent},
+  {path: 'edipreD', component: IndiceEdipreDComponent, canActivate: [EsAdminGuard]},
+  {path: 'edipreD/crear', component: CrearEdipreDComponent, canActivate: [EsAdminGuard]},
+  {path: 'edipreD/editar/:id', component: EditarEdipreDComponent, canActivate: [EsAdminGuard]},
 
-  {path: 'articulos', component: CrearArticulosComponent},
-  {path: 'articulos/editar/:id', component: EditarArticulosComponent},
+  {path: 'articulos', component: CrearArticulosComponent, canActivate: [EsAdminGuard]},
+  {path: 'articulos/editar/:id', component: EditarArticulosComponent, canActivate: [EsAdminGuard]},
   {path: 'articulos/buscar', component: FiltroArticulosComponent},
   {path: 'articulos/:id', component: DetalleArticulosComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: ''}
 ];
 

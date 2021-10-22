@@ -12,19 +12,26 @@
         </a>
     </div>
 
-    <div>
-        <a mat-button routerLink="categorias">Categorías</a>
-    </div>
+    <app-autorizado [rol]="'admin'">
+        <ng-container autorizado>
+            <div>
+                <a mat-button routerLink="categorias">Categorías</a>
+            </div>
 
-    <div>
-        <a mat-button routerLink="podCast">PodCast</a>
-    </div>
+            <div>
+                <a mat-button routerLink="podCast">PodCast</a>
+            </div>
 
-    <div>
-        <a mat-button routerLink="edipreD">Edición Impresa Digital</a>
-    </div>
+            <div>
+                <a mat-button routerLink="edipreD">Edición Impresa Digital</a>
+            </div>
 
-    <div>
-        <a mat-button routerLink="articulos">Crear Artículos</a>
-    </div>
+            <div>
+                <a mat-button routerLink="articulos">Crear Artículos</a>
+            </div>
+        </ng-container>
+    </app-autorizado>
+
+
+
 </mat-toolbar>

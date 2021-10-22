@@ -40,6 +40,7 @@ import { FormularioAarchivadosComponent } from './aarchivados/formulario-aarchiv
 import { CrearAarchivadosComponent } from './aarchivados/crear-aarchivados/crear-aarchivados.component';
 import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle-articulos.component';
 import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
+import { LoginComponent } from './seguridad/login/login.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component
     FormularioAarchivadosComponent,
     CrearAarchivadosComponent,
     DetalleArticulosComponent,
-    AutorizadoComponent
+    AutorizadoComponent,
+    LoginComponent
     
   ],
   imports: [
