@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -44,6 +44,8 @@ import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
 import { FormularioAutenticacionComponent } from './seguridad/formulario-autenticacion/formulario-autenticacion.component';
 import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-errores.component';
+import { IndiceUsuariosComponent } from './seguridad/indice-usuarios/indice-usuarios.component';
+import { SeguridadInterceptorService } from './seguridad/seguridad-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-er
     LoginComponent,
     RegistroComponent,
     FormularioAutenticacionComponent,
-    MostrarErroresComponent
+    MostrarErroresComponent,
+    IndiceUsuariosComponent
     
   ],
   imports: [
@@ -96,7 +99,11 @@ import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-er
     MarkdownModule.forRoot(),
     SweetAlert2Module.forRoot() 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: SeguridadInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

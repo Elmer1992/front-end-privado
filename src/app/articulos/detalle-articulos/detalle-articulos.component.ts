@@ -2,6 +2,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ArticulosService } from './../articulos.service';
 import { Component, OnInit } from '@angular/core';
 import { ArticuloDTO } from '../articulos';
+import { RatingService } from 'src/app/rating/rating.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalle-articulos',
@@ -11,7 +13,8 @@ import { ArticuloDTO } from '../articulos';
 export class DetalleArticulosComponent implements OnInit {
 
   constructor(private articulosService: ArticulosService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private ratingService: RatingService) { }
 
     articulo!: ArticuloDTO;
     fechaLanzamiento!: Date;
@@ -25,6 +28,13 @@ export class DetalleArticulosComponent implements OnInit {
       })
     })
 
+  }
+
+  rated(puntuacion: number){
+    this.ratingService.rate(this.articulo.id, puntuacion)
+    .subscribe(() => {
+      Swal.fire("Exitoso", "Su voto ha sido recibido", 'success');
+    })
   }
 
 }

@@ -21,6 +21,8 @@ export interface ArticuloDTO{
     articulosGratis: any;
     articulosPaga: any;
     categorias: categoriaDTO[];
+    votoUsuario: number;
+    promedioVoto: number;
 }
 
 export interface ArticuloPostGet {

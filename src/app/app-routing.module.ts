@@ -17,6 +17,7 @@ import { DetalleArticulosComponent } from './articulos/detalle-articulos/detalle
 import { EsAdminGuard } from './es-admin.guard';
 import { LoginComponent } from './seguridad/login/login.component';
 import { RegistroComponent } from './seguridad/registro/registro.component';
+import { IndiceUsuariosComponent } from './seguridad/indice-usuarios/indice-usuarios.component';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'articulos/:id', component: DetalleArticulosComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
+  {path: 'usuarios', component: IndiceUsuariosComponent, canActivate: [EsAdminGuard] },
 
   {path: '**', redirectTo: ''}
 ];

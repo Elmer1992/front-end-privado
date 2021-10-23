@@ -16,6 +16,24 @@ export class SeguridadService {
   private readonly llaveExpiracion = 'token-expiracion';
   private readonly campoRol = 'role';
 
+  obtenerUsuarios(pagina: number, recordsPorPagina: number): Observable<any>{
+    let params = new HttpParams();
+    params = params.append('pagina', pagina.toString());
+    params = params.append('recordsPorPagina', recordsPorPagina.toString());
+    return this.httpClient.get<usuarioDTO[]>(`${this.apiURL}/listadousuarios`, 
+    {observe: 'response', params})
+  }
+
+  hacerAdmin(usuarioId: string){
+    const headers = new HttpHeaders('Content-Type: application/json');
+    return this.httpClient.post(`${this.apiURL}/hacerAdmin`, JSON.stringify(usuarioId), {headers});
+  }
+
+  removerAdmin(usuarioId: string){
+    const headers = new HttpHeaders('Content-Type: application/json');
+    return this.httpClient.post(`${this.apiURL}/removerAdmin`, JSON.stringify(usuarioId), {headers});
+  }
+
   estaLogueado(): boolean{
 
     const token = localStorage.getItem(this.llaveToken);
@@ -41,7 +59,7 @@ export class SeguridadService {
   }
 
   obtenerRol(): string {
-    return '';
+    return this.obtenerCampoJWT(this.campoRol);
   }
 
   obtenerCampoJWT(campo: string): string{
@@ -62,6 +80,10 @@ export class SeguridadService {
   guardarToken(respuestaAutenticacion: respuestaAutenticacion){
     localStorage.setItem(this.llaveToken, respuestaAutenticacion.token);
     localStorage.setItem(this.llaveExpiracion, respuestaAutenticacion.expiracion.toString());
+  }
+
+  obtenerToken(){
+    return localStorage.getItem(this.llaveToken);
   }
 
 }

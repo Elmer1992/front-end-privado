@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="warn">
     <span>
         <a routerLink="" mat-button>
             <mat-icon> library_books </mat-icon> PRENSA GRAFICA
@@ -12,22 +12,32 @@
         </a>
     </div>
 
+
     <app-autorizado [rol]="'admin'">
         <ng-container autorizado>
             <div>
-                <a mat-button routerLink="categorias">Categorías</a>
+                <a mat-button routerLink="categorias">
+                    <mat-icon>category</mat-icon>Categorías</a>
             </div>
 
             <div>
-                <a mat-button routerLink="podCast">PodCast</a>
+                <a mat-button routerLink="podCast">
+                    <mat-icon>podcasts</mat-icon>PodCast</a>
             </div>
 
             <div>
-                <a mat-button routerLink="edipreD">Edición Impresa Digital</a>
+                <a mat-button routerLink="edipreD">
+                    <mat-icon>plagiarism</mat-icon>Edición Impresa Digital</a>
             </div>
 
             <div>
-                <a mat-button routerLink="articulos">Crear Artículos</a>
+                <a mat-button routerLink="articulos">
+                    <mat-icon>add</mat-icon>Crear Artículos</a>
+            </div>
+
+            <div>
+                <a mat-button routerLink="usuarios">
+                    <mat-icon>group_add</mat-icon>Usuarios</a>
             </div>
         </ng-container>
     </app-autorizado>
@@ -36,8 +46,9 @@
 
     <app-autorizado>
         <ng-container autorizado>
-            <span>Hola, {{seguridadService.obtenerCampoJWT('email')}}</span>
-            <a mat-button (click)="seguridadService.logout()">Logout</a>
+            <span><mat-icon>account_circle</mat-icon>{{seguridadService.obtenerCampoJWT('email')}}</span>
+            <a mat-button (click)="seguridadService.logout()">
+                <mat-icon>logout</mat-icon>Logout</a>
         </ng-container>
 
         <ng-container noAutorizado>
